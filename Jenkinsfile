@@ -1,10 +1,5 @@
 pipeline{
     stages{
-        stage("Checkout"){
-            steps{
-             git clone https://https://github.com/fastAndCurious-cloud/docker-react
-            }
-        }
 
         stage("build"){
             steps{
