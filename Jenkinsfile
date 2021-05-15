@@ -6,7 +6,10 @@ pipeline {
                 script{
                         git 'https://github.com/wardviaene/docker-demo'
                         sh 'docker build -t 975054375040.dkr.ecr.eu-west-1.amazonaws.com/myapp:${GIT_COMMIT} .'
-                        sh eval '$(aws ecr get-login --region eu-west-1)'
+                        echo "build Image completed"
+                        sh 'aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 975054375040.dkr.ecr.eu-west-1.amazonaws.com'
+
+                        echo "connected to AWS"
                         sh 'docker push 975054375040.dkr.ecr.eu-west-1.amazonaws.com/myapp:${GIT_COMMIT}'
                 }
 
