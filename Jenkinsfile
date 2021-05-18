@@ -3,7 +3,7 @@ pipeline {
     stages{
         stage("Checkout"){
             steps{
-               checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/wardviaene/docker-demo']]])
+               checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/fastAndCurious-cloud/docker-demo']]])
 
             }
         }
